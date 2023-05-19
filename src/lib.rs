@@ -31,6 +31,7 @@ impl Rectangle {
 }
 // Define private enum Size intended to be used in the Shirt struct
 #[derive(Debug)]
+#[derive(PartialEq)]
 enum Size {
     Small,
     Medium,
@@ -65,10 +66,27 @@ pub fn read(string: &str) -> u32 {
 // Initial practise for implementing unit tests
 #[cfg(test)]
 mod tests {
+    use super::*;
 
     #[test]
-    fn it_works() {
-        let result = 2+2;
-        assert_eq!(result,4);
+    fn unit_test_shirt() {
+        let size = Size::Medium;
+        let colour = "Green".to_string();
+
+        let new_shirt = Shirt{
+            size,
+            colour
+        };
+        assert_eq!(new_shirt.colour,"Green");
+        assert_eq!(new_shirt.size,Size::Medium);
+    }
+
+    #[test]
+    fn unit_test_rectangle() {
+        let rect1 = Rectangle::new(5,5);
+        let rect2 = Rectangle::new(4,4);
+
+        assert_ne!(5,rect1.area());
+        assert!(!rect2.can_hold(&rect1));
     }
 }
