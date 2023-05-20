@@ -1,26 +1,26 @@
 // Bring library lib.rs into scope
-mod lib;
+use hellorust::Rectangle;
 
 // Define main() function which will run when cargo run is called
 fn main() {
     // use lib function read() to retrieve width & height values
     // for rect1
-    let mut w: u32 = lib::read("width");
-    let mut h: u32 = lib::read("height");
+    let mut w: u32 = hellorust::read("width");
+    let mut h: u32 = hellorust::read("height");
 
     // Create rect1 as an instance of Rectangle with given values
-    let rect1 = lib::Rectangle::new(w,h);
+    let rect1 = Rectangle::new(w,h);
 
     // Print area of rect1 to screen
     println!("Area of rect1 = {}",rect1.area());
 
     // use lib function read() to retrieve width & height values
     // for rect2
-    w = lib::read("width");
-    h = lib::read("height");
+    w = hellorust::read("width");
+    h = hellorust::read("height");
 
     // Create rect2 as an instance of Rectangle with given values
-    let rect2 = lib::Rectangle::new(w,h);
+    let rect2 = Rectangle::new(w,h);
 
     // Print area of rect2 to screen
     println!("Area of rect2 = {}",rect2.area());
