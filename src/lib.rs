@@ -3,7 +3,12 @@
 use std::io;
 
 // Define a public struct Rectangle
-#[derive(Debug)]
+// Introduction of a new thread taking a Rectangle instance requires that
+// Rectangle implement the Copy and (by extenstion) Clone Traits to allow
+// continued usage in the original thread
+// (the Rectangle is not returned from the new thread to the original, thus 
+// sacrificing ownership)
+#[derive(Debug,Copy,Clone)]
 pub struct Rectangle {
     width: u32,
     height: u32,
