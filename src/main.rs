@@ -29,6 +29,7 @@ fn main() {
     // use Rectangles can_hold method to determine whether rect1
     // can hold rect2 inside of it;
     // Print the result as a string to the screen
+    // Perform this using a closure in a new thread
     thread::spawn(move || {
         match rect1.can_hold(&rect2) {
             true => println!("rect2 can fit inside rect1"),
@@ -37,5 +38,7 @@ fn main() {
         }
     });
 
+    // Print rect2.area() again after it is passed to the new thread
+    // this required Rectangle to implement Copy & Clone Traits
     println!("After thread::spawn {}",rect2.area());
 }
