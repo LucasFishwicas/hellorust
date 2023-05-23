@@ -1,5 +1,6 @@
 // Bring library lib.rs into scope
 use hellorust::Rectangle;
+use std::thread;
 
 // Define main() function which will run when cargo run is called
 fn main() {
@@ -28,8 +29,10 @@ fn main() {
     // use Rectangles can_hold method to determine whether rect1
     // can hold rect2 inside of it;
     // Print the result as a string to the screen
-    match rect1.can_hold(&rect2) {
+    thread::spawn(move || match rect1.can_hold(&rect2) {
         true => println!("rect2 can fit inside rect1"),
         false => println!("rect2 cannot fit inside rect1")
-    }
+    });
+
+    println!("After thread::spawn");
 }
