@@ -3,7 +3,7 @@ use hellorust;
 
 // Initial practise for integration tests
 #[test]
-fn intergrate_test_rectangle() {
+fn integrate_test_rectangle() {
     let rect1 = hellorust::Rectangle::new(5,5);
     let rect2 = hellorust::Rectangle::new(3,3);
 
