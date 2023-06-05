@@ -50,6 +50,23 @@ struct Shirt {
 }
 
 
+
+
+// Struct to test usage of the Drop Trait
+pub struct CustomSmartPointer {
+    pub data: String,
+}
+
+// Implement the drop() method for the Drop Trait
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        println!("Dropping CustomSmartPointer with data {}!", self.data);
+    }
+}
+
+
+
+
 //  Define a function Read() intended to take Rectangle parameters as user input
 pub fn read(string: &str) -> u32 {
     let mut temp = String::new();

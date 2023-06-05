@@ -1,5 +1,8 @@
-// Bring library lib.rs into scope
+// Bring Rectangle struct from lib.rs into scope
 use hellorust::Rectangle;
+// Bring CustomSmartPointer from lib.rs into scope
+use hellorust::CustomSmartPointer;
+// Bring threads from std library into scope
 use std::thread;
 
 // Define main() function which will run when cargo run is called
@@ -41,4 +44,18 @@ fn main() {
     // Print rect2.area() again after it is passed to the new thread
     // this required Rectangle to implement Copy & Clone Traits
     println!("After thread::spawn {}",rect2.area());
+
+
+    // CustomSmartPointer implements the Drop Trait
+    // when CustomSmartPointer goes out of scope, the drop() trait method is called
+    // its implementation for CustomSmartPointer is simply to print a message
+    // stating that it is being dropped
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
+
+    println!("CustomSmartPointers created.")
 }
