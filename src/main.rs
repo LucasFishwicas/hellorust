@@ -19,7 +19,7 @@ fn main() {
     // for rect2
     w = hellorust::read("width");
     h = hellorust::read("height");
-
+    
     // Create rect2 as an instance of Rectangle with given values
     let rect2 = Rectangle::new(w,h);
 
